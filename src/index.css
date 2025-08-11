@@ -1,0 +1,226 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700&family=Press+Start+2P&family=VT323&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --dark: #1c1917;
+  --dark-blue: #292524;
+  --accent-blue: #f97316;
+  --accent-purple: #eab308;
+  --accent-pink: #f43f5e;
+  --accent-orange: #f97316;
+  --accent-emerald: #10b981;
+  --terminal-green: #eab308;
+}
+
+/* Removed scroll-behavior: smooth; as Lenis handles smooth scrolling */
+html {
+  /* scroll-behavior: smooth; */
+}
+
+body {
+  @apply bg-dark text-gray-100;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Focus styles - fixed closing brace */
+*:focus {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+/* Glassmorphism base component */
+.glassmorphism {
+  @apply backdrop-blur-md bg-white/5 border border-white/10 rounded-lg;
+}
+
+/* Animation for pulse-slow that might be missing */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Glowing border hover effect */
+.glow-border-hover {
+  @apply transition-all duration-300;
+  position: relative;
+}
+
+.glow-border-hover::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  @apply border border-accent-blue/0 rounded-lg transition-all duration-300;
+  box-shadow: 0 0 0px rgba(249, 115, 22, 0);
+}
+
+.glow-border-hover:hover::after {
+  @apply border-accent-blue/50;
+  box-shadow: 0 0 15px rgba(249, 115, 22, 0.4);
+}
+
+/* Terminal text styling */
+.terminal-text {
+  @apply font-vt323 text-terminal-green;
+  position: relative;
+}
+
+.terminal-text::after {
+  content: '|';
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  from, to { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Glitch effect on text hover */
+.text-glitch {
+  position: relative;
+}
+
+.text-glitch::before,
+.text-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+}
+
+.text-glitch:hover::before {
+  @apply text-accent-pink;
+  transform: translateX(2px);
+  animation: glitch 0.3s infinite linear alternate-reverse;
+  clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%, 0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+.text-glitch:hover::after {
+  @apply text-accent-blue;
+  transform: translateX(-2px);
+  animation: glitch 0.4s infinite linear alternate-reverse;
+  clip-path: polygon(0 55%, 100% 55%, 100% 100%, 0 100%);
+}
+
+/* Animation for flicker effect */
+@keyframes flicker {
+  0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+    opacity: 0.99;
+  }
+  20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+    opacity: 0.4;
+  }
+}
+
+/* Custom shadow effects */
+.shadow-neon-blue {
+  box-shadow: 0 0 8px 2px rgba(99, 102, 241, 0.6);
+}
+
+.shadow-neon-green {
+  box-shadow: 0 0 8px 2px rgba(16, 185, 129, 0.6);
+}
+
+/* Pixel rendering for images */
+.pixel-image {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* Page transition animations */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-20px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Create pixel border effect */
+.pixel-border {
+  position: relative;
+}
+
+.pixel-border::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: transparent;
+  border-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="8" height="8" viewBox="0 0 8 8"><rect x="0" y="0" width="8" height="8" fill="none" stroke="%236366F1" stroke-width="2"/></svg>') 2 stretch;
+  border-width: 4px;
+  border-style: solid;
+  pointer-events: none;
+}
+
+/* Gradients and effects */
+.text-gradient {
+  background: linear-gradient(to right, #00FFF7, #8F00FF);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Cinematic animations */
+.cinematic-zoom {
+  transition: transform 0.5s cubic-bezier(0.2, 0, 0.2, 1);
+}
+
+.cinematic-zoom:hover {
+  transform: scale(1.05);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    color: #f0f0f0;
+    background-color: #121212;
+  }
+  a:hover {
+    color: #a8b4ff;
+  }
+  button {
+    background-color: #1e1e1e;
+  }
+}
