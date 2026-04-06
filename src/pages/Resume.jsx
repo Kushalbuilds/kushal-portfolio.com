@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import portfolioData from '../data/portfolioData';
 
 const Resume = () => {
-  const { education, experience, skills, certifications } = portfolioData;
+  const { education, experience, skills } = portfolioData;
 
   return (
     <div className="container mx-auto px-4 py-10">
