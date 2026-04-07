@@ -99,8 +99,8 @@ const portfolioData = {
   languageProficiency: {
     English: "Professional",
     Kannada: "Moderate",
-    Hindi: "Full",
-    Marathi: "Full"
+    Hindi: "Moderate",
+    Marathi: "Moderate"
   },
   hobbies: ["Sports", "Traveling", "Listening to Music"],
 };
