@@ -99,7 +99,7 @@ const Home = () => {
             sequence={[
               'Electronics Engineer',
               2000,
-              'IoT Developer',
+              'Software Developer',
               2000,
               'Problem Solver',
               2000,
@@ -120,7 +120,7 @@ const Home = () => {
           transition={{ duration: 1, delay: 1.2, ease: "easeOut" }}
           className="text-gray-400 text-xl md:text-2xl mb-16 max-w-2xl mx-auto leading-relaxed"
         >
-          Building innovative IoT solutions and electronic systems.
+          Code Create Innovate Repeat.
           <br />
           <span className="text-accent-blue/80">Connecting technology with real-world applications.</span>
         </motion.p>
