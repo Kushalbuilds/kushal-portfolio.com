@@ -1,1 +1,1 @@
-# KUSHAL.IO
+# kushal.com
