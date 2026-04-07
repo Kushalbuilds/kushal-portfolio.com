@@ -1,82 +1,53 @@
-/* ===== CENTER CONTENT ===== */
-.container {
-  position: relative;
-  z-index: 2;
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+/* Set default text color for better accessibility */
+body {
+  color-scheme: dark;
+}
+/* Ensure images and media are responsive */
+img, 
+video {
+  max-width: 100%;
+  height: auto;
+}
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
   text-align: center;
-  top: 40%;
 }
-
-.title {
-  font-size: 3rem;
-  background: linear-gradient(to right, #38bdf8, #f472b6);
-  -webkit-background-clip: text;
-  color: transparent;
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
 }
-
-.subtitle {
-  margin-top: 10px;
-  opacity: 0.7;
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
 }
-
-/* ===== BALLS SYSTEM ===== */
-.balls {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
 }
-
-/* Base ball */
-.ball {
-  position: absolute;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  filter: blur(2px);
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
-
-/* Individual balls */
-.ball1 {
-  background: #38bdf8;
-  left: 20%;
-  animation: bounce1 6s infinite ease-in-out;
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
 }
-
-.ball2 {
-  background: #f472b6;
-  left: 50%;
-  animation: bounce2 8s infinite ease-in-out;
+.card {
+  padding: 2em;
 }
-
-.ball3 {
-  background: #facc15;
-  left: 75%;
-  animation: bounce3 7s infinite ease-in-out;
-}
-
-/* ===== BOUNCE ANIMATIONS ===== */
-@keyframes bounce1 {
-  0%, 100% { top: 10%; }
-  50% { top: 80%; }
-}
-
-@keyframes bounce2 {
-  0%, 100% { top: 80%; }
-  50% { top: 20%; }
-}
-
-@keyframes bounce3 {
-  0%, 100% { top: 30%; }
-  50% { top: 70%; }
-}
-
-/* ===== GLOW EFFECT ===== */
-.ball {
-  box-shadow: 0 0 20px currentColor, 0 0 40px currentColor;
-}
-
-/* ===== OPTIONAL: FLOATING MOTION ===== */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+.read-the-docs {
+  color: #888;
 }
