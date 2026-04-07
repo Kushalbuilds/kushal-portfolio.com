@@ -28,8 +28,8 @@ const portfolioData = {
     },
   ],
   skills: {
-    programmingLanguages: ["C/C++", "Python", "SQL", "PL/SQL"],
-    database: ["Oracle APEX", "MySQL Workbench"],
+    programmingLanguages: ["C++", "Python", "SQL", "Java"],
+    database: [ "MySQL Workbench"],
     webTechnologies: ["HTML", "CSS", "JavaScript"],
     coreConcepts: ["Machine Learning"],
     tools: ["MATLAB", "Arduino IDE", "VS Code"],
